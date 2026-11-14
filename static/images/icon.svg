@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#232838"/>
+      <stop offset="1" stop-color="#0f1115"/>
+    </linearGradient>
+    <linearGradient id="gap" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#e0362c" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#e0362c" stop-opacity="0.05"/>
+    </linearGradient>
+    <clipPath id="sq"><rect x="8" y="8" width="240" height="240" rx="54"/></clipPath>
+  </defs>
+  <rect x="8" y="8" width="240" height="240" rx="54" fill="url(#bg)"/>
+  <g clip-path="url(#sq)">
+    <!-- grid -->
+    <g stroke="#ffffff" stroke-opacity="0.06" stroke-width="2">
+      <path d="M8 88H248M8 128H248M8 168H248M8 208H248"/>
+      <path d="M68 8V248M128 8V248M188 8V248"/>
+    </g>
+    <!-- time lost between the two traces -->
+    <path d="M30 78 L84 78 C112 78 112 176 136 176 C158 176 168 102 230 96 L230 104 C176 108 166 196 140 196 C112 196 106 90 80 90 L30 90 Z" fill="url(#gap)"/>
+    <!-- reference (blue) and mine (red) speed traces -->
+    <path d="M30 90 L80 90 C106 90 112 196 140 196 C166 196 176 108 230 104" fill="none" stroke="#ff4438" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M30 78 L84 78 C112 78 112 176 136 176 C158 176 168 102 230 96" fill="none" stroke="#3b8fe6" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+    <!-- cursor -->
+    <path d="M190 40V220" stroke="#ffffff" stroke-opacity="0.55" stroke-width="5" stroke-dasharray="10 9" stroke-linecap="round"/>
+  </g>
+  <rect x="9.5" y="9.5" width="237" height="237" rx="52.5" fill="none" stroke="#ffffff" stroke-opacity="0.08" stroke-width="3"/>
+</svg>

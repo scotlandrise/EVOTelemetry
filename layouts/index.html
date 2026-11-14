@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="{{ site.LanguageCode }}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{ site.Title }} · {{ site.Params.tagline }}</title>
+  <meta name="description" content="{{ site.Params.description }}">
+  <meta property="og:title" content="{{ site.Title }}">
+  <meta property="og:description" content="{{ site.Params.description }}">
+  <meta property="og:image" content="{{ "images/social-card.png" | absURL }}">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="stylesheet" href="{{ "css/style.css" | relURL }}">
+  <link rel="icon" type="image/svg+xml" href="{{ "images/icon.svg" | relURL }}">
+  <link rel="icon" type="image/png" sizes="32x32" href="{{ "images/favicon.png" | relURL }}">
+  <link rel="apple-touch-icon" href="{{ "images/apple-touch-icon.png" | relURL }}">
+</head>
+<body>
+  <header class="nav">
+    <div class="wrap nav-in">
+      <a class="logo" href="#top"><img src="{{ "images/icon.svg" | relURL }}" alt="" width="28" height="28">Evo<span class="red">Telemetry</span></a>
+      <nav>
+        <a href="#features">Features</a>
+        <a href="#how">How it works</a>
+        <a href="#download">Download</a>
+        <a href="{{ site.Params.repo }}">GitHub</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+    <section class="hero">
+      <div class="wrap">
+        <img class="hero-icon" src="{{ "images/icon.svg" | relURL }}" alt="EvoTelemetry icon" width="112" height="112">
+        <h1>{{ site.Params.tagline }}</h1>
+        <div class="lead">{{ .Content }}</div>
+        <div class="cta">
+          <a class="btn primary" href="{{ site.Params.download }}">Download for Windows</a>
+          <a class="btn" href="{{ site.Params.wiki }}">Read the docs</a>
+        </div>
+        <p class="small">Version {{ site.Params.version }} · Windows 10/11 64-bit · single .exe, nothing to install</p>
+
+        <div class="shot">
+          {{ if os.FileExists "static/images/analyze.png" }}
+            <img src="{{ "images/analyze.png" | relURL }}" alt="EvoTelemetry Analyze window">
+          {{ else }}
+            <div class="shot-placeholder">Put a screenshot in <code>static/images/analyze.png</code></div>
+          {{ end }}
+        </div>
+      </div>
+    </section>
+
+    <section id="features" class="band">
+      <div class="wrap">
+        <h2>Everything you need to find time</h2>
+        <div class="grid">
+          {{ range site.Data.features }}
+          <article class="card">
+            <div class="icon">{{ .icon }}</div>
+            <h3>{{ .title }}</h3>
+            <p>{{ .text | markdownify }}</p>
+          </article>
+          {{ end }}
+        </div>
+      </div>
+    </section>
+
+    <section id="how">
+      <div class="wrap">
+        <h2>How it works</h2>
+        <ol class="steps">
+          {{ range $i, $s := site.Data.steps }}
+          <li><span class="num">{{ add $i 1 }}</span><h3>{{ $s.title }}</h3><p>{{ $s.text }}</p></li>
+          {{ end }}
+        </ol>
+      </div>
+    </section>
+
+    <section id="download" class="band">
+      <div class="wrap center">
+        <h2>Get EvoTelemetry</h2>
+        <p>Download <code>EvoTelemetry.exe</code>, put it in a folder of its own and run it. Settings are saved next to it.</p>
+        <a class="btn primary big" href="{{ site.Params.download }}">Download the latest release</a>
+        <p class="small"><a href="{{ site.Params.wiki }}">Documentation</a> · <a href="{{ site.Params.repo }}/issues">Report a problem</a></p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">
+      <p>{{ site.Title }} · {{ now.Year }}. Not affiliated with or endorsed by the publishers of Assetto Corsa EVO. Satellite imagery: USDA NAIP (public domain).</p>
+    </div>
+  </footer>
+</body>
+</html>

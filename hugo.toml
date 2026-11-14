@@ -1,0 +1,15 @@
+baseURL = "https://YOUR-USER.github.io/EvoTelemetry/"
+languageCode = "en-us"
+title = "EvoTelemetry"
+disableKinds = ["taxonomy", "term", "RSS", "sitemap", "section"]
+
+[params]
+  tagline = "Find the tenths. Lap telemetry and comparison for Assetto Corsa EVO."
+  description = "Record your laps in Assetto Corsa EVO, compare them with a reference and see exactly where you lose time."
+  repo = "https://github.com/scotlandrise/EvoTelemetry"
+  download = "https://github.com/scotlandrise/EvoTelemetry/releases/latest"
+  wiki = "https://github.com/scotlandrise/EvoTelemetry/wiki"
+  version = "1.0"
+
+[markup.goldmark.renderer]
+  unsafe = true
